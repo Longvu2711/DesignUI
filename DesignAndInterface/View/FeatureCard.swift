@@ -14,20 +14,29 @@ struct FeatureCard: View {
     
     var body: some View {
         HStack {
+            
             Image(systemName: iconName)
                 .font(.system(size: 50))
+                .frame(width: 50)
+                .padding(.trailing, 10)
             
             Text(description)
                 .font(.title)
             
+            Spacer()
         }
         .padding()
-        .foregroundColor(.white)
-        .background(.teal, in: RoundedRectangle(cornerRadius: 10))
-        .frame(width: 400 , height: 200)
+        .background{
+            RoundedRectangle(cornerRadius: 12)
+                .foregroundStyle(.teal)
+                .opacity(0.25)
+                .brightness(-0.4)
+        }
+        .foregroundStyle(.white)
+        
     }
 }
 
 #Preview {
-    FeatureCard(iconName: "scribble.variable", description: "description")
+    FeatureCard(iconName: "scribble.variable", description: "A very long description")
 }
